@@ -1,0 +1,47 @@
+.comment {
+  margin: to-rem(1) 0;
+  width: 100%;
+  display: inline-block;
+
+  .MuiCard-root {
+    background-color: #6fb53f2b;
+  }
+  @include e("container") {
+    display: flex;
+    padding: to-rem(25) 0 to-rem(20);
+  }
+
+  @include e("likes-wrapper") {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @include e("like-btn") {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  @include e("likes-count") {
+    display: inline-block;
+    margin: to-rem(10) 0;
+  }
+
+  @include e("info") {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include e("desc") {
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: to-rem(20);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

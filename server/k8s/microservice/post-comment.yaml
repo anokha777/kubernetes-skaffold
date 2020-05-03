@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: post-app
+  template:
+    metadata:
+      labels:
+        app: post-app
+    spec:
+      containers:
+      - name: post-container
+        # image: anokhadocker/post:latest
+        image: post:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: post-service
+spec:
+  type: ClusterIP
+  selector:
+    app: post-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

@@ -1,0 +1,19 @@
+# get pvc list
+kubectl get pvc
+# get volum list
+kubectl get pv
+
+kubectl describe ns default
+kubectl label namespace default instio-injection=enabled
+
+kubectl get all -n kube-system
+kubectl top node
+kubectl top pod
+minikube addons list
+minikube addons enable metrics-server
+kubectl get all -n kube-system
+minikube addons enable heapster
+minikube addons disable metrics-server
+
+kubectl get hpa
+for i in `seq 1 50`; do curl http://192.168.64.12:30080/; done

@@ -1,0 +1,53 @@
+.question-card {
+  margin: to-rem(20) 0;
+  width: 100%;
+  display: inline-block;
+  @include e("container") {
+    display: flex;
+    padding: to-rem(25) 0 to-rem(20);
+  }
+
+  @include e("likes-wrapper") {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @include e("like-btn") {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  @include e("likes-count") {
+    display: inline-block;
+    margin: to-rem(10) 0;
+  }
+
+  @include e("question-info") {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  @include e("title") {
+    margin-bottom: to-rem(20);
+    font-weight: bold;
+    font-size: 24px;
+  }
+  @include e("desc") {
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: to-rem(20);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @include e("user-info") {
+    align-self: flex-end;
+    padding-right: to-rem(20);
+  }
+}

@@ -1,0 +1,24 @@
+.sign-up {
+  margin-top: to-rem(30);
+  text-align: center;
+  .MuiFormControl-root {
+    margin-top: to-rem(30);
+    width: 100%;
+  }
+  .MuiButton-root {
+    margin-top: to-rem(30);
+    margin-left: to-rem(20);
+  }
+  @include e("heading") {
+    font-size: to-rem(30);
+  }
+  @include e("existing-user") {
+    display: block;
+    text-decoration: none;
+    margin-top: to-rem(20);
+  }
+  @include e("error-message") {
+    color: red;
+    margin-top: to-rem(20);
+  }
+}

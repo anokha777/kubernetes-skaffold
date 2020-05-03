@@ -1,0 +1,51 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  local:
+    push: false
+  artifacts:
+    - image: gateway
+      context: server/gateway-svc
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        '**/*.js': .
+    - image: auth
+      context: server/auth-svc
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        '**/*.js': .
+    - image: user
+      context: server/user-mgt-svc
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        '**/*.js': .
+    # - image: post
+    #   context: server/post-comment-svc
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     '**/*.js': .
+    - image: question
+      context: server/question-svc
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        '**/*.js': .
+    - image: client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        '**/*.js': .
+deploy:
+  kubectl:
+    manifests:
+      - server/k8s/microservice/gateway.yaml
+      - server/k8s/microservice/auth.yaml
+      - server/k8s/microservice/user-mgt.yaml
+      # - server/k8s/microservice/post-comment.yaml
+      - server/k8s/microservice/question.yaml
+      - server/k8s/microservice/client.yaml

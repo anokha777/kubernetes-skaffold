@@ -1,0 +1,33 @@
+.profile {
+  @include e("avatar") {
+    display: flex;
+    width: 30%;
+  }
+
+  @include e("info") {
+    width: 85%;
+  }
+
+  @include e("stats") {
+    display: flex;
+  }
+  @include e("feeds") {
+    text-align: center;
+    width: 15%;
+  }
+  @include e("questions_answers") {
+    text-align: center;
+    width: 80%;
+  }
+
+  .profile__feeds {
+    ul li {
+      margin: to-rem(20) 0 0;
+      button {
+        background: none;
+        font-size: to-rem(16);
+        color: blue;
+      }
+    }
+  }
+}

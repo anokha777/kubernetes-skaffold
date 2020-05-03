@@ -1,0 +1,41 @@
+.question__message {
+  color: green;
+  font-weight: 700;
+}
+
+.question__message-error {
+  color: red;
+  font-weight: 700;
+}
+
+.ask-question {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+
+  .MuiFormControl-root {
+    margin-top: to-rem(30);
+    width: 100%;
+  }
+
+  .MuiButton-root {
+    margin: to-rem(30) to-rem(10);
+  }
+
+  .buttons-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include e("heading") {
+    font-size: to-rem(30);
+    margin-top: to-rem(30);
+  }
+}
+
+.question__login-message {
+  color: red;
+  text-align: start;
+  margin: 18px;
+  font-weight: 700;
+}

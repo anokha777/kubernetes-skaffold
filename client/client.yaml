@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-client-app 
+  template:
+    metadata:
+      labels:
+        app: react-client-app
+    spec:
+      containers:
+      - name: react-client-container
+        # image: anokhadocker/tga-group-9-client:${BUILD_ID}
+        image: ${REPOSITORY_TAG}
+
+        # image: react-client:latest
+        # imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: react-client-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: react-client-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    # nodePort: 30081

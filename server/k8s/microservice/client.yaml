@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-client-app 
+  template:
+    metadata:
+      labels:
+        app: react-client-app
+    spec:
+      containers:
+      - name: react-client-container
+        # image: anokhadocker/client:latest
+        image: client:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: react-client-service
+spec:
+  type: NodePort
+  selector:
+    app: react-client-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30081

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: question-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: question-app
+  template:
+    metadata:
+      labels:
+        app: question-app
+    spec:
+      containers:
+      - name: question-container
+        # image: anokhadocker/question:latest
+        # image: question:latest
+        image: ${REPOSITORY_TAG}
+        # imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: question-service
+spec:
+  type: ClusterIP
+  selector:
+    app: question-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

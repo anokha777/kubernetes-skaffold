@@ -1,0 +1,33 @@
+.menu-link {
+  text-decoration: none;
+  color: white;
+}
+
+.navigation-bar {
+  display: flex;
+  width: 100%;
+}
+.search-bar {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.right-link {
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navigation-bar .MuiFormControl-root {
+  width: 80%;
+  color: white;
+  background-color: white;
+  border: 0;
+  border-radius: 4px;
+}
+
+.navigation-bar .MuiFormControl-root input {
+  padding-left: 10px;
+  border: 4px;
+}

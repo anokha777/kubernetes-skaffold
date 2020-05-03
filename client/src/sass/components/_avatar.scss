@@ -1,0 +1,16 @@
+.user-avatar {
+  display: flex;
+  @include e("profile-image-wrapper") {
+    width: 45%;
+    margin-right: to-rem(20);
+  }
+  @include e("profile-image") {
+    width: 100%;
+  }
+  @include e("info") {
+    width: 45%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -1,0 +1,32 @@
+.add-comment__message {
+  color: green;
+  font-weight: 700;
+}
+
+.add-comment__message-error {
+  color: red;
+  font-weight: 700;
+}
+
+.add-comment {
+  padding: 30px 0;
+  .MuiFormControl-root {
+    margin-top: to-rem(10);
+    width: 100%;
+  }
+
+  .MuiButton-root {
+    margin: to-rem(30) to-rem(10);
+  }
+}
+
+.add-comment__comments-title {
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.add-comment__button-row {
+  display: flex;
+  justify-content: flex-end;
+}
